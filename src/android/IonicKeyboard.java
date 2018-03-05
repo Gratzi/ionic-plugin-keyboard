@@ -85,14 +85,16 @@ public class IonicKeyboard extends CordovaPlugin {
                             //http://stackoverflow.com/a/29257533/3642890 beware of nexus 5
                             int screenHeight;
 
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                Display display = cordova.getActivity().getWindowManager().getDefaultDisplay();
-                                Point size = new Point();
-                                display.getSize(size);
-                                screenHeight = size.y;
-                            } else {
-                                screenHeight = rootViewHeight;
-                            }
+                            // Pegg: We actually want the height = keyboard + the soft menu height...
+
+                            // if (Build.VERSION.SDK_INT >= 21) {
+                            //     Display display = cordova.getActivity().getWindowManager().getDefaultDisplay();
+                            //     Point size = new Point();
+                            //     display.getSize(size);
+                            //     screenHeight = size.y;
+                            // } else {
+                            screenHeight = rootViewHeight;
+                            // }
 
                             int heightDiff = screenHeight - resultBottom;
 
